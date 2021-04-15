@@ -1,0 +1,17 @@
+/*
+Copyright 2019-2020 Myeongjin. See LICENSE.
+*/
+@viewport {width: 100vw; height: 100vh; zoom: 1;}
+.page, main {
+    max-width: 1130px;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media (min-width: 720px) {
+    .page, main {
+        padding-left: 3.35rem;
+        padding-right: 3.35rem;
+    }
+}
+body {background-color: #F1F1F1; font-family: sans-serif;}
+a {color: #4A8BEE;}
