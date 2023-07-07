@@ -1,0 +1,29 @@
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s - %s" .Title site.Title }}{{ end }}</title>
+{{ if .IsHome }}<meta name="title" content="{{ site.Title }}" />{{ else }}{{ printf "<meta name=\"title\" content=\"%s - %s\" />" .Title site.Title }}"{{ end }}
+{{- with .Params.Summary | default .Params.Description }}<meta name="description" content="{{ . }}" />{{ end }}
+{{- with .Site.Params.author.name }}
+<meta name="author" content="{{ . }}" />{{ end }}
+{{- with .Site.Params.Copyright | default .Site.Copyright }}
+<meta name="copyright" content="{{ . }}" />{{ end }}
+{{- range .AlternativeOutputFormats }}
+{{ printf "<link href=%q rel=\"alternate\" type=%q />" .RelPermalink .MediaType | safeHTML }}{{ end }}
+{{ if .IsPage -}}
+<meta property="og:type" content="article" />
+{{ else -}}
+<meta property="og:type" content="website" />
+{{- end }}
+{{- with .Params.image | default .Site.Params.logo }}
+<meta property="og:image" content="{{ . | absURL }}" />{{ end }}
+{{- if .IsHome -}}
+<meta property="og:title" content="{{ .Site.Title }}" />
+{{ else -}}
+<meta property="og:title" content="{{ .Title }} - {{ .Site.Title }}" />
+{{- end }}
+{{- with .Params.Description }}<meta property="og:description" content="{{ . }}" />{{ end }}
+<meta property="og:url" content="{{ .Permalink | absURL }}" />
+<meta property="og:site_name" content="{{ .Site.Title }}" />
+{{ hugo.Generator }}
+{{ partialCached "head/css.html" . }}
+{{ partialCached "head/js.html" . }}
