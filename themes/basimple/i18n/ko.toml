@@ -1,0 +1,14 @@
+[Language]
+  other = '언어'
+
+[PostedOn]
+  other = '{{ .date }}에 게시됨'
+
+[LastModOn]
+  other = '{{ .date }}에 마지막으로 수정됨'
+
+[Categories]
+  other = '분류'
+
+[Tags]
+  other = '태그'

@@ -1,0 +1,65 @@
+/*
+Copyright 2019-2020, 2023-2025 Myeongjin. See LICENSE.
+*/
+/* Body Style */
+body {
+  font-family: sans-serif;
+  line-height: 1.35;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1130px;
+}
+
+/* Container Style */
+header, main, footer {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+/* Header Style */
+header {
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 1rem;
+}
+
+/* Footer Style */
+footer {
+  border-top: 1px solid #e6e6e6;
+  margin-top: 1rem;
+}
+
+/* Not Displaying the Menu when Printing */
+@media print {
+  .site-menu {display: none !important;}
+}
+
+/* Block Style */
+.block {display: block;}
+
+/* Flex Style */
+.flex {display: flex;}
+
+/* Flex List Style */
+.flex-list {
+  display: flex;
+  list-style-position: inside;
+  padding-inline-start: 3px;
+}
+.flex-list li {margin-right: 1rem;}
+
+/* Remove Margin in List */
+.list-remove-margin {
+  margin-block-start: 0rem;
+  margin-block-end: 0rem;
+}
+
+/* Dark Mode Style */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #1f1f1f;
+    color: #ffffff;
+  }
+  a:link {color: #7979ee;}
+  a:visited {color: #b478ed;}
+  a:active {color: #ff3131;}
+}

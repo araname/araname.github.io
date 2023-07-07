@@ -1,0 +1,12 @@
+<h1><a href="{{ .Site.Home.RelPermalink }}">{{ site.Title }}</a></h1>
+<nav class="site-menu">
+  <menu class="flex-list">
+    {{- range .Site.Menus.main }}
+    <li><a href="{{ .URL | safeURL }}">{{ .Name }}</a></li>
+    {{- end }}
+    {{- with .OutputFormats.Get "Atom" }}
+    <li>{{ printf "<a href=%q type=%q target=\"_blank\">Atom</a>" .RelPermalink .MediaType | safeHTML }}</li>{{ end }}
+    {{- with .OutputFormats.Get "RSS" }}
+    <li>{{ printf "<a href=%q type=%q target=\"_blank\">RSS</a>" .RelPermalink .MediaType | safeHTML }}</li>{{ end }}
+  </menu>
+</nav>

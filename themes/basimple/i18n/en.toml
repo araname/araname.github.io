@@ -1,0 +1,16 @@
+[Language]
+  other = 'Language'
+
+[PostedOn]
+  other = 'Posted on {{ .date }}'
+
+[LastModOn]
+  other = 'Last modified on {{ .date }}'
+
+[Categories]
+  one = 'Category'
+  other = 'Categories'
+
+[Tags]
+  one = 'Tag'
+  other = 'Tags'

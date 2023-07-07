@@ -1,0 +1,52 @@
+baseURL = 'https://araname.github.io/'
+defaultContentLanguage = 'ko'
+title = '아라로그'
+theme = ['atom-template-for-hugo', 'basimple']
+timeZone = 'Asia/Seoul'
+
+copyright = 'Copyright (c) Myeongjin. All rights reserved.'
+
+[Params]
+author.name = '명진'
+copyright = 'Copyright (c) Myeongjin. All rights reserved.'
+
+disableKinds = ['RSS', '404']
+
+[taxonomies]
+category = 'category'
+
+[outputs]
+home = ['HTML', 'Atom']
+section = ['HTML', 'Atom']
+taxonomy = ['HTML', 'Atom']
+term = ['HTML', 'Atom']
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[menus]
+[[menus.main]]
+    name = '대하여'
+    pageRef = '/about-me'
+    weight = 1
+[[menus.main]]
+    name = '분류'
+    pageRef = '/category'
+    weight = 2
+
+[languages]
+[languages.ko]
+    languageName = '한국어'
+[languages.en]
+    languageName = 'English'
+    title = 'Aralog'
+    [languages.en.Params]
+        author.name = 'Myeongjin'
+    [[languages.en.menus.main]]
+        name = 'About'
+        pageRef = '/about-me'
+        weight = 1
+    [[languages.en.menus.main]]
+        name = 'Categories'
+        pageRef = '/category'
+        weight = 2

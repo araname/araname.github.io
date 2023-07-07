@@ -1,0 +1,16 @@
+[Language]
+  other = 'Langue'
+
+[PostedOn]
+  other = 'Publié le {{ .date }}'
+
+[LastModOn]
+  other = 'Dernière modification le {{ .date }}'
+
+[Categories]
+  one = 'Catégorie'
+  other = 'Catégories'
+
+[Tags]
+  one = 'Balise'
+  other = 'Balises'

@@ -1,0 +1,31 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+
+  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $dateHuman := .Date | time.Format ":date_long" }}
+  <time datetime="{{ $dateMachine }}" class="block">{{ i18n "PostedOn" (dict "date" $dateHuman) }}</time>
+  {{ $lastmodMachine := .Lastmod | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $lastmodHuman := .Lastmod | time.Format ":date_long" }}
+  <time datetime="{{ $lastmodMachine }}" class="block">{{ i18n "LastModOn" (dict "date" $lastmodHuman) }}</time>
+
+  {{ .Content }}
+  {{- if .Params.category }}
+  <div class="flex">
+    <div>{{ i18n "Categories" }}:&nbsp;</div>
+    <ul class="flex-list list-remove-margin">
+      {{- range .Params.category }}
+      <li><a href="{{ "category/" | relURL }}{{ . | urlize }}/">{{ . }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- end -}}
+  {{- if .IsTranslated }}
+  <div class="site-menu flex">{{ i18n "Language" }}:&nbsp;
+    <ul class="flex-list list-remove-margin">
+      {{- range .Translations }}
+      <li><a href="{{ .RelPermalink }}" hreflang="{{ .Language.Lang }}">{{ .Language.LanguageName }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- end -}}
+{{ end }}

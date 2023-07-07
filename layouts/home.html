@@ -1,0 +1,16 @@
+{{ define "main" }}
+  {{ .Content }}
+  {{- if .IsTranslated }}
+  <div class="site-menu flex">{{ i18n "Language" }}:&nbsp;
+    <ul class="flex-list list-remove-margin">
+      {{- range $.Site.Home.AllTranslations }}
+      <li><a href="{{ .RelPermalink }}" hreflang="{{ .Language.Lang }}">{{ .Language.LanguageName }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+  {{- end }}
+  {{ range site.RegularPages }}
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    {{ .Summary }}
+  {{ end }}
+{{ end }}
