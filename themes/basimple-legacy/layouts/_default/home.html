@@ -1,0 +1,15 @@
+{{ define "main" }}
+  {{ .Content }}
+  {{- if .Site.IsMultiLingual }}
+  <div class="flex">{{ i18n "Languages" }}:&nbsp;
+    <ul class="flex-li li-remove-margin">
+    {{- range .Site.Home.AllTranslations }}
+    <li><a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+    {{- end }}
+    </ul></div>
+  {{- end }}
+  {{ range site.RegularPages }}
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    {{ .Summary }}
+  {{ end }}
+{{ end }}

@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+
+  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $dateHuman := .Date | time.Format ":date_long" }}
+  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+  {{ $lastmodMachine := .Lastmod | time.Format "2006-01-02T15:04:05-07:00" }}
+  {{ $lastmodHuman := .Lastmod | time.Format ":date_long" }}
+  <time datetime="{{ $lastmodMachine }}">{{ $lastmodHuman }}</time>
+
+  {{ .Content }}
+  {{- if .Params.category }}
+  <div class="flex">{{ i18n "Categories" }}:&nbsp;
+      <ul class="flex-li li-remove-margin">
+  {{- range .Params.category }}
+  <li><a href="{{ "category/" | relURL }}{{ . | urlize }}/">{{ . }}</a></li>
+  {{- end }}
+  </ul></div>
+  {{- end -}}
+{{ end }}

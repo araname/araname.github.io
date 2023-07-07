@@ -1,0 +1,27 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  {{ range .Pages }}
+    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+    {{ $dateHuman := .Date | time.Format ":date_long" }}
+    <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+    {{- if .Params.categories }}
+    <div class="flex">{{ i18n "Categories" }}:&nbsp;
+    <ul class="flex-li li-remove-margin">
+    {{- range .Params.categories }}
+    <li><a href="{{ "categories/" | relURL }}{{ . | urlize }}/">{{ . }}</a></li>
+    {{- end }}
+    </ul></div>
+    {{- end -}}
+    {{- if .Params.tags }}
+    <div class="flex">{{ i18n "Tags" }}:&nbsp;
+    <ul class="flex-li li-remove-margin">
+    {{- range .Params.tags }}
+    <li><a href="{{ "tags/" | relURL }}{{ . | urlize }}/">{{ . }}</a></li>
+    {{- end }}
+    </ul></div>
+    {{- end -}}
+    {{ .Summary }}
+  {{ end }}
+{{ end }}

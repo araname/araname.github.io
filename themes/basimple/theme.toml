@@ -1,0 +1,11 @@
+name = 'Basimple'
+license = 'Apache License 2.0'
+licenselink = 'https://github.com/araname/araname.github.io/blob/main/themes/basimple/LICENSE'
+description = 'Simple Theme of Basic Style'
+homepage = 'https://github.com/araname/araname.github.io/tree/main/themes/basimple'
+# demosite = 'https://owner.github.io/repo'
+tags = ['blog', 'dark mode', 'light', 'minimal', 'multilingual', 'responsive']
+features = ['some', 'awesome', 'features']
+[author]
+  name = 'Myeongjin'
+  homepage = 'https://araname.github.io'
