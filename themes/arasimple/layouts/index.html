@@ -1,0 +1,14 @@
+{{ define "main" }}
+{{- if .Content }}
+{{ .Content }}
+{{- if .Site.IsMultiLingual }}
+<div class="flex">{{ i18n "Languages" }}:&nbsp;
+    <ul class="li-flex li-remove-margin">
+    {{- range .Site.Home.AllTranslations }}
+    <li><a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a></li>
+    {{- end }}
+    </ul></div>
+{{- end }}
+{{- end }}
+{{ partial "list.html" . }}
+{{- end }}

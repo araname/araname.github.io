@@ -1,0 +1,50 @@
+baseURL = "https://araname.github.io/"
+# languageCode = "ko"
+title = "아라로그"
+theme = ["atom-template-for-hugo", "arasimple"]
+defaultContentLanguage = "ko"
+
+[outputs]
+home = ["HTML", "RSS", "Atom"]
+section = ["HTML", "RSS", "Atom"]
+taxonomy = ["HTML", "RSS", "Atom"]
+term = ["HTML", "RSS", "Atom"]
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[author]
+name = "Myeongjin"
+
+[menu]
+[[menu.main]]
+    name = "게시물"
+    pageRef = "/posts"
+    weight = 1
+[[menu.main]]
+    name = "대하여"
+    pageRef = "/pages/about"
+    weight = 2
+[[menu.main]]
+    name = "태그"
+    pageRef = "/tags"
+    weight = 3
+
+[languages]
+[languages.ko]
+    languageName = "한국어"
+[languages.en]
+    languageName = "English"
+    title = "Aralog"
+    [[languages.en.menu.main]]
+        name = "Posts"
+        pageRef = "/posts"
+        weight = 1
+    [[languages.en.menu.main]]
+        name = "About"
+        pageRef = "/pages/about"
+        weight = 2
+    [[languages.en.menu.main]]
+        name = "Tags"
+        pageRef = "/tags"
+        weight = 3

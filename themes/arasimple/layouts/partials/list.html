@@ -1,0 +1,18 @@
+{{- $pages := .Paginator }}
+{{- range $pages.Pages }}
+<h2><a href="{{ .Permalink | relURL }}">{{ .Title }}</a></h2>
+<time>{{ .Date | time.Format ":date_long" }}</time>
+{{- if .Params.tags }}
+<div class="flex">{{ i18n "Tags" }}:&nbsp;
+<ul class="li-flex li-remove-margin">
+{{- range .Params.tags }}
+<li><a href="{{ "tags/" | relURL }}{{ . | urlize }}/">{{.}}</a></li>
+{{- end }}
+</ul></div>
+{{- end -}}
+{{- if .Truncated }}
+<p>{{ .Summary }}</p>
+{{- else }}
+{{ .Content }}
+{{- end }}
+{{- end }}

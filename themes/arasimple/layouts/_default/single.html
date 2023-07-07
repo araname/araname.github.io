@@ -1,0 +1,21 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+<time>{{ .Date | time.Format ":date_long" }}</time>
+{{- if .Params.tags }}
+<div class="flex">{{ i18n "Tags" }}:&nbsp;
+    <ul class="li-flex li-remove-margin">
+{{- range .Params.tags }}
+<li><a href="{{ "tags/" | relURL }}{{ . | urlize }}/">{{.}}</a></li>
+{{- end }}
+</ul></div>
+{{- end -}}
+{{ .Content }}
+{{- if or .NextInSection .PrevInSection }}<ul>{{ end }}
+    {{- if .NextInSection }}
+    <li><a href="{{ .NextInSection.Permalink | relURL }}">{{ i18n "Newer" }}: {{ .NextInSection.Title }}</a></li>
+    {{- end }}
+    {{- if .PrevInSection }}
+    <li><a href="{{ .PrevInSection.Permalink | relURL }}">{{ i18n "Older" }}: {{ .PrevInSection.Title }}</a></li>
+    {{- end -}}
+{{- if or .NextInSection .PrevInSection }}</ul>{{ end }}
+{{- end }}
